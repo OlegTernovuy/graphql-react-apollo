@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 
+import { HeaderDiv } from '../styled/StyledHeader';
+
 const Header = () => (
-    <div>
+    <HeaderDiv>
         <Link to="/">
             <div>All list</div>
         </Link>
@@ -11,7 +13,7 @@ const Header = () => (
         <Link to="/search">
             <div>Search in list</div>
         </Link>
-    </div>
+    </HeaderDiv>
 );
 
 export default Header;

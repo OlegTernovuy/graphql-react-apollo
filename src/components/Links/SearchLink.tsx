@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { SingleLink } from '../index';
 
 import { TLink } from '../../types';
+import { ListOfLinks } from '../../styled/StyledLinkList';
 
 const FEED_SEARCH_QUERY = gql`
     query FeedSearchQuery($filter: String!) {
@@ -33,7 +34,8 @@ const SearchLink = () => {
     const [searchLink, setSearchLink] = useState('');
     const [executeSearch, { data }] = useLazyQuery(FEED_SEARCH_QUERY);
     return (
-        <div>
+        <ListOfLinks>
+            <span>Here you can find some list</span>
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -43,7 +45,6 @@ const SearchLink = () => {
                     setSearchLink('');
                 }}
             >
-                <span>Here you can find some list</span>
                 <input
                     type="text"
                     value={searchLink}
@@ -55,7 +56,7 @@ const SearchLink = () => {
                 data.feed.links.map((link: TLink) => (
                     <SingleLink key={link.id} link={link} />
                 ))}
-        </div>
+        </ListOfLinks>
     );
 };
 

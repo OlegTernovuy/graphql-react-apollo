@@ -7,7 +7,6 @@ import {
     InMemoryCache,
 } from '@apollo/client';
 
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';

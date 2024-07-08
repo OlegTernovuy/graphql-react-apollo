@@ -1,6 +1,7 @@
 import { useQuery, gql } from '@apollo/client';
 
 import { SingleLink } from '../index';
+import { ListOfLinks } from '../../styled/StyledLinkList';
 
 import { TLink } from '../../types';
 
@@ -22,7 +23,7 @@ const LinkList = () => {
     const { data, loading, error } = useQuery(FEED_QUERY);
 
     return (
-        <div>
+        <ListOfLinks>
             {loading ? (
                 <>Loading...</>
             ) : error ? (
@@ -34,7 +35,7 @@ const LinkList = () => {
                     <SingleLink key={link.id} link={link} />
                 ))
             )}
-        </div>
+        </ListOfLinks>
     );
 };
 

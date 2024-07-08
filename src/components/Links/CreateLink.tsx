@@ -2,6 +2,7 @@ import { useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { CreateListForm } from '../../styled/StyledCreateList';
 
 type FormValues = {
     graphDesc: string;
@@ -56,7 +57,7 @@ const CreateLink = () => {
     const [createLink] = useMutation(CREATE_LINK_MUTATION);
 
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <CreateListForm onSubmit={formik.handleSubmit}>
             <input
                 name="graphDesc"
                 value={formik.values.graphDesc}
@@ -73,7 +74,7 @@ const CreateLink = () => {
                     : null}
             </span>
             <button type="submit">Submit</button>
-        </form>
+        </CreateListForm>
     );
 };
 
