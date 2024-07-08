@@ -2,7 +2,9 @@ import { useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+
 import { CreateListForm } from '../../styled/StyledCreateList';
+import { AUTH_TOKEN } from '../../constants';
 
 type FormValues = {
     graphDesc: string;
@@ -24,17 +26,19 @@ const validationSchema = yup.object({
     graphDesc: yup
         .string()
         .min(5, 'Description must contain at least 5 char')
-        .max(25, 'Description should not contain more than 25 char')
+        .max(50, 'Description should not contain more than 25 char')
         .required('Description is required'),
     graphLink: yup
         .string()
         .min(5, 'Link must contain at least 5 char')
-        .max(25, 'Link should not contain more than 25 char')
+        .max(100, 'Link should not contain more than 25 char')
         .required('Link is required'),
 });
 
 const CreateLink = () => {
     const navigate = useNavigate();
+
+    const authToken = localStorage.getItem(AUTH_TOKEN);
 
     const formik = useFormik({
         initialValues: {
@@ -43,14 +47,18 @@ const CreateLink = () => {
         } as FormValues,
         validationSchema: validationSchema,
         onSubmit: (values: FormValues, { resetForm }) => {
-            resetForm();
-            createLink({
-                variables: {
-                    description: values.graphDesc,
-                    url: values.graphLink,
-                },
-            });
-            navigate('/');
+            if (!!authToken) {
+                resetForm();
+                createLink({
+                    variables: {
+                        description: values.graphDesc,
+                        url: values.graphLink,
+                    },
+                });
+                navigate('/');
+            } else {
+                alert('Please login or register');
+            }
         },
     });
 

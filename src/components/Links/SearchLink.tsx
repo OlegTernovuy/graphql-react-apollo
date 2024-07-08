@@ -2,9 +2,9 @@ import { useLazyQuery, gql } from '@apollo/client';
 import { useState } from 'react';
 
 import { SingleLink } from '../index';
+import { ListOfLinks } from '../../styled/StyledLinkList';
 
 import { TLink } from '../../types';
-import { ListOfLinks } from '../../styled/StyledLinkList';
 
 const FEED_SEARCH_QUERY = gql`
     query FeedSearchQuery($filter: String!) {

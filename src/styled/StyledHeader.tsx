@@ -11,4 +11,8 @@ const HeaderDiv = styled.div`
     }
 `;
 
-export { HeaderDiv };
+const LogoutButton = styled.div`
+    cursor: pointer;
+`;
+
+export { HeaderDiv, LogoutButton };
