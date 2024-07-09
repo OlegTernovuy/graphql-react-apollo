@@ -1,36 +1,38 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { HeaderDiv, LogoutButton } from '../styled/StyledHeader';
 import { AUTH_TOKEN } from '../constants';
+import { HeaderStory } from '../stories/Header/Header';
+
+const headerLinks = [
+    {
+        linkTo: '/',
+        linkTitle: 'All list',
+    },
+    {
+        linkTo: '/create',
+        linkTitle: 'Add list',
+    },
+    {
+        linkTo: '/search',
+        linkTitle: 'Search',
+    },
+];
 
 const Header = () => {
     const navigate = useNavigate();
     const authToken = localStorage.getItem(AUTH_TOKEN);
 
+    const handleLogout = () => {
+        localStorage.removeItem(AUTH_TOKEN);
+        navigate('/');
+    };
+
     return (
-        <HeaderDiv>
-            <Link to="/">
-                <div>All list</div>
-            </Link>
-            <Link to="/create">
-                <div>Add list</div>
-            </Link>
-            <Link to="/search">
-                <div>Search in list</div>
-            </Link>
-            {authToken ? (
-                <LogoutButton
-                    onClick={() => {
-                        localStorage.removeItem(AUTH_TOKEN);
-                        navigate(`/`);
-                    }}
-                >
-                    logout
-                </LogoutButton>
-            ) : (
-                <Link to="/login">login</Link>
-            )}
-        </HeaderDiv>
+        <HeaderStory
+            links={headerLinks}
+            authToken={authToken}
+            onLogout={handleLogout}
+        />
     );
 };
 

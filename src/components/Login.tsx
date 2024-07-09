@@ -4,6 +4,8 @@ import { useState } from 'react';
 
 import { AUTH_TOKEN } from '../constants';
 import { LoginButtons, LoginInputs } from '../styled/StyledLogin';
+import { Button } from '../stories/Button/Button';
+import { Input } from '../stories/Input/Input';
 
 const SIGNUP_MUTATION = gql`
     mutation SignupMutation(
@@ -68,7 +70,7 @@ const Login = () => {
             >
                 <LoginInputs>
                     {!formState.login && (
-                        <input
+                        <Input
                             value={formState.name}
                             onChange={(e) =>
                                 setFormState({
@@ -78,10 +80,9 @@ const Login = () => {
                             }
                             type="text"
                             placeholder="Your name"
-                            required
                         />
                     )}
-                    <input
+                    <Input
                         value={formState.email}
                         onChange={(e) =>
                             setFormState({
@@ -91,9 +92,8 @@ const Login = () => {
                         }
                         type="text"
                         placeholder="Your email address"
-                        required
                     />
-                    <input
+                    <Input
                         value={formState.password}
                         onChange={(e) =>
                             setFormState({
@@ -103,25 +103,29 @@ const Login = () => {
                         }
                         type="password"
                         placeholder="Choose a safe password"
-                        required
                     />
                 </LoginInputs>
                 <LoginButtons>
-                    <button type="submit">
-                        {formState.login ? 'login' : 'create account'}
-                    </button>
-                    <button
-                        onClick={(e) =>
+                    <Button
+                        bType="submit"
+                        label={formState.login ? 'login' : 'create account'}
+                        size="small"
+                        primary
+                    />
+                    <Button
+                        onClick={() =>
                             setFormState({
                                 ...formState,
                                 login: !formState.login,
                             })
                         }
-                    >
-                        {formState.login
-                            ? 'need to create an account?'
-                            : 'already have an account?'}
-                    </button>
+                        label={
+                            formState.login
+                                ? 'need to create an account?'
+                                : 'already have an account?'
+                        }
+                        size="small"
+                    />
                 </LoginButtons>
             </form>
         </div>

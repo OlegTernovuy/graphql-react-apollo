@@ -1,10 +1,12 @@
 import { useLazyQuery, gql } from '@apollo/client';
 import { useState } from 'react';
 
-import { SingleLink } from '../index';
+import { SingleLink } from '../../stories/SingleLink/SingleLink';
 import { ListOfLinks } from '../../styled/StyledLinkList';
+import { Button } from '../../stories/Button/Button';
 
 import { TLink } from '../../types';
+import { Input } from '../../stories/Input/Input';
 
 const FEED_SEARCH_QUERY = gql`
     query FeedSearchQuery($filter: String!) {
@@ -45,16 +47,17 @@ const SearchLink = () => {
                     setSearchLink('');
                 }}
             >
-                <input
-                    type="text"
+                <Input
+                    type={'text'}
                     value={searchLink}
+                    border
                     onChange={(e) => setSearchLink(e.target.value)}
                 />
-                <button type="submit">Search</button>
+                <Button bType="submit" label="Search" size="small" />
             </form>
             {data &&
                 data.feed.links.map((link: TLink) => (
-                    <SingleLink key={link.id} link={link} />
+                    <SingleLink key={link.id} link={link} bgColor='#1ea7fd' />
                 ))}
         </ListOfLinks>
     );

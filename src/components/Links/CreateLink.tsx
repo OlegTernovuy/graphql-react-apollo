@@ -5,6 +5,8 @@ import * as yup from 'yup';
 
 import { CreateListForm } from '../../styled/StyledCreateList';
 import { AUTH_TOKEN } from '../../constants';
+import { Button } from '../../stories/Button/Button';
+import { Input } from '../../stories/Input/Input';
 
 type FormValues = {
     graphDesc: string;
@@ -66,12 +68,12 @@ const CreateLink = () => {
 
     return (
         <CreateListForm onSubmit={formik.handleSubmit}>
-            <input
+            <Input
                 name="graphDesc"
                 value={formik.values.graphDesc}
                 onChange={formik.handleChange}
             />
-            <input
+            <Input
                 name="graphLink"
                 value={formik.values.graphLink}
                 onChange={formik.handleChange}
@@ -81,7 +83,7 @@ const CreateLink = () => {
                     ? formik.errors.graphDesc || formik.errors.graphLink
                     : null}
             </span>
-            <button type="submit">Submit</button>
+            <Button bType="submit" label="Submit" size="small" />
         </CreateListForm>
     );
 };

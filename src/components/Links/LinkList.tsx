@@ -1,6 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 
-import { SingleLink } from '../index';
+import { SingleLink } from '../../stories/SingleLink/SingleLink';
 import { ListOfLinks } from '../../styled/StyledLinkList';
 
 import { TLink } from '../../types';
