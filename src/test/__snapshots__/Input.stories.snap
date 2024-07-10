@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Example/Input ActiveInput smoke-test 1`] = `
+<input name="example"
+       type="text"
+       placeholder="Enter text..."
+       required
+       class="sc-aYaIB hDObfi"
+       value="input with border"
+>
+`;
+
+exports[`Example/Input DefaultInput smoke-test 1`] = `
+<input name="example"
+       type="text"
+       placeholder="Enter text..."
+       required
+       class="sc-aYaIB ddeLtZ"
+       value
+>
+`;

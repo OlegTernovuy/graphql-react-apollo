@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Example/Header LoggedIn smoke-test 1`] = `
+<header class="sc-aYaIB kLiZFw">
+  <a href="/">
+    All list
+  </a>
+  <a href="/create">
+    Add list
+  </a>
+  <a href="/search">
+    Search
+  </a>
+  <div class="sc-gEvDqW fqGYHL">
+    logout
+  </div>
+</header>
+`;
+
+exports[`Example/Header LoggedOut smoke-test 1`] = `
+<header class="sc-aYaIB kLiZFw">
+  <a href="/">
+    All list
+  </a>
+  <a href="/create">
+    Add list
+  </a>
+  <a href="/search">
+    Search
+  </a>
+  <a href="/login">
+    Login
+  </a>
+</header>
+`;

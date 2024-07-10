@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Example/Link ColorLink smoke-test 1`] = `
+<header bgcolor="#1ea7fd"
+        class="sc-aYaIB htkKAf"
+>
+  some description (some url)
+</header>
+`;
+
+exports[`Example/Link DefaultLink smoke-test 1`] = `
+<header class="sc-aYaIB gGZBgM">
+  some description (some url)
+</header>
+`;

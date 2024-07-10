@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Example/Button Large smoke-test 1`] = `
+<button type="button"
+        class="sc-aYaIB fqjdZn"
+>
+  Button
+</button>
+`;
+
+exports[`Example/Button Primary smoke-test 1`] = `
+<button type="button"
+        class="sc-aYaIB ePmFeX"
+>
+  Button
+</button>
+`;
+
+exports[`Example/Button Secondary smoke-test 1`] = `
+<button type="button"
+        class="sc-aYaIB jazNmC"
+>
+  Button
+</button>
+`;
+
+exports[`Example/Button Small smoke-test 1`] = `
+<button type="button"
+        class="sc-aYaIB iMlrYg"
+>
+  Button
+</button>
+`;
