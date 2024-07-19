@@ -10,6 +10,10 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 
+### `yarn test:storybook`
+
+Launches the snapshot and unit storybook tests in the interactive watch mode.\
+
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
